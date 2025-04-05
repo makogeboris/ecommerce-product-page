@@ -3,7 +3,7 @@ import Navbar from "./Navbar";
 import CartButton from "./CartButton";
 import Avatar from "./Avatar";
 
-function Header({ handleShowMenu, onToggleCart }) {
+function Header({ handleShowMenu, onToggleCart, quantity, showQuantity }) {
   return (
     <header className="px-6 pt-5 pb-6 md:pt-7 md:pb-0">
       <div className="mx-auto flex max-w-[69.375rem] items-center justify-between gap-4 lg:border-b lg:border-b-[var(--color-light-grayish-blue)] lg:pb-8">
@@ -11,7 +11,7 @@ function Header({ handleShowMenu, onToggleCart }) {
           <button
             onClick={handleShowMenu}
             className="group cursor-pointer focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--color-orange)] lg:hidden"
-            aria-label="Open Menu"
+            aria-label="Open mobile menu"
           >
             <svg
               width="16"
@@ -34,7 +34,11 @@ function Header({ handleShowMenu, onToggleCart }) {
         </div>
 
         <div className="flex items-center gap-6 md:gap-11">
-          <CartButton onToggleCart={onToggleCart} />
+          <CartButton
+            onToggleCart={onToggleCart}
+            quantity={quantity}
+            showQuantity={showQuantity}
+          />
           <Avatar />
         </div>
       </div>

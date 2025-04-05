@@ -6,6 +6,9 @@ import MobileMenu from "./components/MobileMenu";
 function App() {
   const [showMenu, setShowMenu] = useState(false);
   const [showCart, setShowCart] = useState(false);
+  const [quantity, setQuantity] = useState(0);
+  const [showQuantity, setShowQuantity] = useState(false);
+  const [isItemInCart, setIsItemInCart] = useState(false);
 
   function handleShowMenu() {
     setShowMenu(true);
@@ -19,10 +22,49 @@ function App() {
     setShowCart((prev) => !prev);
   }
 
+  function handleIncrement() {
+    setQuantity((quantity) => quantity + 1);
+  }
+
+  function handleDecrement() {
+    setQuantity((quantity) => Math.max(0, quantity - 1));
+  }
+
+  function handleShowQuantity() {
+    if (!quantity) return;
+    setShowQuantity(true);
+    setIsItemInCart(true);
+  }
+
+  function handleDelete() {
+    setQuantity(0);
+    setShowQuantity(false);
+  }
+
+  function handleCheckout() {
+    setQuantity(0);
+    setShowQuantity(false);
+    setShowCart(false);
+  }
+
   return (
     <>
-      <Header handleShowMenu={handleShowMenu} onToggleCart={toggleCart} />
-      <Container showCart={showCart} />
+      <Header
+        handleShowMenu={handleShowMenu}
+        onToggleCart={toggleCart}
+        quantity={quantity}
+        showQuantity={showQuantity}
+      />
+      <Container
+        showCart={showCart}
+        quantity={quantity}
+        onIncrement={handleIncrement}
+        onDecrement={handleDecrement}
+        onShowQuantity={handleShowQuantity}
+        isItemInCart={isItemInCart}
+        onDelete={handleDelete}
+        onCheckout={handleCheckout}
+      />
       {showMenu && <MobileMenu handleHideMenu={handleHideMenu} />}
     </>
   );

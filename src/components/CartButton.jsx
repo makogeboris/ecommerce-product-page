@@ -1,7 +1,8 @@
-function CartButton({ onToggleCart }) {
+function CartButton({ onToggleCart, quantity, showQuantity }) {
   return (
     <div className="relative">
       <button
+        aria-label="Toggle cart"
         onClick={onToggleCart}
         className="group flex cursor-pointer self-center focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--color-orange)]"
       >
@@ -21,9 +22,11 @@ function CartButton({ onToggleCart }) {
         </svg>
       </button>
 
-      <div className="absolute top-[-5px] right-[-7px] flex h-[13px] w-5 items-center justify-center rounded-[6.5px] bg-[var(--color-orange)] text-center">
-        <p className="text-[10px] font-bold text-white">3</p>
-      </div>
+      {showQuantity && (
+        <div className="absolute top-[-5px] right-[-7px] flex h-[13px] w-5 items-center justify-center rounded-[6.5px] bg-[var(--color-orange)] text-center">
+          <p className="text-[10px] font-bold text-white">{quantity}</p>
+        </div>
+      )}
     </div>
   );
 }

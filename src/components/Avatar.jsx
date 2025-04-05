@@ -7,7 +7,7 @@ function Avatar() {
       <img
         className="xs:size-[3.125rem] size-6 shrink-0 rounded-full border-2 border-transparent transition-all duration-300 hover:border-[var(--color-orange)]"
         src="/images/image-avatar.png"
-        alt=""
+        alt="User's avatar"
       />
     </a>
   );

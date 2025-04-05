@@ -4,7 +4,7 @@ function Logo() {
       className="focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--color-orange)]"
       href="#"
     >
-      <img src="/images/logo.svg" alt="" />
+      <img src="/images/logo.svg" alt="sneakers" />
     </a>
   );
 }

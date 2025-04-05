@@ -6,7 +6,7 @@ function MobileMenu({ handleHideMenu }) {
           <button
             onClick={handleHideMenu}
             className="group w-fit cursor-pointer focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--color-orange)]"
-            aria-label="Close Menu"
+            aria-label="Close mobile menu"
           >
             <svg
               width="14"

@@ -1,7 +1,7 @@
 import plusIcon from "../assets/icon-plus.svg";
 import minusIcon from "../assets/icon-minus.svg";
 
-function ProductInfo() {
+function ProductInfo({ quantity, onIncrement, onDecrement, onShowQuantity }) {
   return (
     <div className="flex flex-col gap-6 px-6 sm:max-w-[33.75rem] md:px-0 lg:max-w-[27.8125rem]">
       <div className="xs:space-y-0 space-y-4">
@@ -36,19 +36,30 @@ function ProductInfo() {
       </div>
 
       <div className="flex flex-col items-center gap-4 md:mt-2 md:flex-row">
-        <div className="flex w-full items-center justify-between rounded-[10px] bg-[var(--color-light-grayish-blue)] p-4">
-          <button className="cursor-pointer transition-all duration-300 hover:opacity-60 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--color-orange)]">
+        <div className="flex w-full items-center justify-between rounded-[10px] bg-[var(--color-light-grayish-blue)] p-4 lg:max-w-[9.8125rem]">
+          <button
+            aria-label="Decrease item"
+            onClick={onDecrement}
+            className="cursor-pointer transition-all duration-300 hover:opacity-60 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--color-orange)]"
+          >
             <img src={minusIcon} alt="" />
           </button>
           <p className="text-base font-bold text-[var(--color-very-dark-blue)]">
-            0
+            {quantity}
           </p>
-          <button className="cursor-pointer transition-all duration-300 hover:opacity-60 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--color-orange)]">
+          <button
+            aria-label="Increase item"
+            onClick={onIncrement}
+            className="cursor-pointer transition-all duration-300 hover:opacity-60 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--color-orange)]"
+          >
             <img src={plusIcon} alt="" />
           </button>
         </div>
 
-        <button className="flex w-full cursor-pointer items-center justify-center gap-4 rounded-[10px] bg-[var(--color-orange)] p-4 text-base font-bold text-white transition-all duration-300 hover:opacity-80 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--color-orange)]">
+        <button
+          onClick={onShowQuantity}
+          className="flex w-full cursor-pointer items-center justify-center gap-4 rounded-[10px] bg-[var(--color-orange)] p-4 text-base font-bold text-white transition-all duration-300 hover:opacity-80 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--color-orange)]"
+        >
           <svg
             width="18"
             height="16"
