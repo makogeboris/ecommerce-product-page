@@ -1,7 +1,7 @@
 function MobileMenu({ handleHideMenu }) {
   return (
     <>
-      <div className="absolute top-0 left-0 z-20 h-screen w-[60%] bg-white md:hidden">
+      <div className="absolute top-0 left-0 z-20 h-screen w-[60%] bg-white lg:hidden">
         <div className="flex flex-col gap-14 p-6 pt-9">
           <button
             onClick={handleHideMenu}
@@ -73,7 +73,7 @@ function MobileMenu({ handleHideMenu }) {
 
       <div
         onClick={handleHideMenu}
-        className="fixed inset-0 z-0 h-full w-full bg-[var(--color-black-75)] transition-all duration-500 md:hidden"
+        className="fixed inset-0 z-0 h-full w-full bg-[var(--color-black-75)] transition-all duration-500 lg:hidden"
       ></div>
     </>
   );

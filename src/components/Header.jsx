@@ -3,14 +3,14 @@ import Navbar from "./Navbar";
 import CartButton from "./CartButton";
 import Avatar from "./Avatar";
 
-function Header({ handleShowMenu }) {
+function Header({ handleShowMenu, onToggleCart }) {
   return (
     <header className="px-6 pt-5 pb-6 md:pt-7 md:pb-0">
-      <div className="mx-auto flex max-w-[69.375rem] items-center justify-between gap-4 md:border-b md:border-b-[var(--color-light-grayish-blue)] md:pb-8">
-        <div className="flex items-center gap-4 md:gap-14">
+      <div className="mx-auto flex max-w-[69.375rem] items-center justify-between gap-4 lg:border-b lg:border-b-[var(--color-light-grayish-blue)] lg:pb-8">
+        <div className="flex items-center gap-4 lg:gap-14">
           <button
             onClick={handleShowMenu}
-            className="group cursor-pointer focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--color-orange)] md:hidden"
+            className="group cursor-pointer focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--color-orange)] lg:hidden"
             aria-label="Open Menu"
           >
             <svg
@@ -34,7 +34,7 @@ function Header({ handleShowMenu }) {
         </div>
 
         <div className="flex items-center gap-6 md:gap-11">
-          <CartButton />
+          <CartButton onToggleCart={onToggleCart} />
           <Avatar />
         </div>
       </div>

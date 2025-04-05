@@ -1,7 +1,10 @@
-function CartButton() {
+function CartButton({ onToggleCart }) {
   return (
     <div className="relative">
-      <button className="group flex cursor-pointer self-center focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--color-orange)]">
+      <button
+        onClick={onToggleCart}
+        className="group flex cursor-pointer self-center focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--color-orange)]"
+      >
         <svg
           width="22"
           height="20"

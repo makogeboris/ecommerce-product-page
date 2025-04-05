@@ -1,6 +1,6 @@
 function Navbar() {
   return (
-    <nav className="hidden md:block">
+    <nav className="hidden lg:block">
       <ul className="flex items-center gap-8">
         <li>
           <a
