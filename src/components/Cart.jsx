@@ -1,4 +1,5 @@
 import { motion } from "motion/react";
+import { toast } from "react-hot-toast";
 import deleteIcon from "../assets/icon-delete.svg";
 
 function Cart({ quantity, isItemInCart, onDelete, onCheckout }) {
@@ -43,7 +44,15 @@ function Cart({ quantity, isItemInCart, onDelete, onCheckout }) {
 
             <button
               aria-label="Remove item"
-              onClick={onDelete}
+              onClick={() => {
+                onDelete();
+
+                toast.success("Item deleted", {
+                  loading: "Deleting...",
+                  success: <b>Item deleted</b>,
+                  error: <b>Could not deleted.</b>,
+                });
+              }}
               className="cursor-pointer focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--color-orange)]"
             >
               <img src={deleteIcon} alt="" />
@@ -51,7 +60,20 @@ function Cart({ quantity, isItemInCart, onDelete, onCheckout }) {
           </div>
 
           <button
-            onClick={onCheckout}
+            onClick={() => {
+              onCheckout();
+
+              const toastId = toast.loading("Processing your order...");
+
+              setTimeout(() => {
+                toast.success(
+                  "Checkout successful! Thank you for your purchase!",
+                  {
+                    id: toastId,
+                  },
+                );
+              }, 2000);
+            }}
             className="w-full cursor-pointer rounded-[10px] bg-[var(--color-orange)] p-4 text-base font-bold text-white transition-all duration-300 hover:opacity-80 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--color-orange)]"
           >
             Checkout

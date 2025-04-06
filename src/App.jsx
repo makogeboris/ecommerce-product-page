@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { AnimatePresence } from "motion/react";
+import { Toaster } from "react-hot-toast";
 import Header from "./components/Header";
 import Container from "./components/Container";
 import MobileMenu from "./components/MobileMenu";
@@ -50,6 +51,24 @@ function App() {
 
   return (
     <>
+      <Toaster
+        gutter={12}
+        containerStyle={{ margin: "0.5rem" }}
+        toastOptions={{
+          success: {
+            duration: 4000,
+            iconTheme: {
+              primary: "hsl(26, 100%, 55%)",
+              secondary: "hsl(0, 0%, 100%)",
+            },
+          },
+          ariaProps: {
+            role: "status",
+            "aria-live": "polite",
+            "aria-atomic": "true",
+          },
+        }}
+      />
       <Header
         handleShowMenu={handleShowMenu}
         onToggleCart={toggleCart}

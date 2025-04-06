@@ -1,4 +1,5 @@
 import { motion } from "motion/react";
+import { toast } from "react-hot-toast";
 import plusIcon from "../assets/icon-plus.svg";
 import minusIcon from "../assets/icon-minus.svg";
 
@@ -63,7 +64,11 @@ function ProductInfo({ quantity, onIncrement, onDecrement, onShowQuantity }) {
 
         <motion.button
           whileTap={{ scale: 0.5, y: 2 }}
-          onClick={onShowQuantity}
+          onClick={() => {
+            if (!quantity) return;
+            toast.success("Item added to cart");
+            onShowQuantity();
+          }}
           className="flex w-full cursor-pointer items-center justify-center gap-4 rounded-[10px] bg-[var(--color-orange)] p-4 text-base font-bold text-white transition-all duration-300 hover:opacity-80 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--color-orange)]"
         >
           <svg
