@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { AnimatePresence } from "motion/react";
 import Header from "./components/Header";
 import Container from "./components/Container";
 import MobileMenu from "./components/MobileMenu";
@@ -65,7 +66,9 @@ function App() {
         onDelete={handleDelete}
         onCheckout={handleCheckout}
       />
-      {showMenu && <MobileMenu handleHideMenu={handleHideMenu} />}
+      <AnimatePresence initial={false}>
+        {showMenu && <MobileMenu handleHideMenu={handleHideMenu} />}
+      </AnimatePresence>
     </>
   );
 }

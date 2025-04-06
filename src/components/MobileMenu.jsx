@@ -1,7 +1,15 @@
+import { motion } from "motion/react";
+
 function MobileMenu({ handleHideMenu }) {
   return (
     <>
-      <div className="absolute top-0 left-0 z-20 h-screen w-[60%] bg-white lg:hidden">
+      <motion.div
+        initial={{ x: "100%", opacity: 0 }}
+        animate={{ x: 0, opacity: 1 }}
+        exit={{ x: "100%", opacity: 0 }}
+        transition={{ type: "tween", duration: 0.3 }}
+        className="absolute top-0 left-0 z-20 h-screen w-[60%] bg-white lg:hidden"
+      >
         <div className="flex flex-col gap-14 p-6 pt-9">
           <button
             onClick={handleHideMenu}
@@ -69,12 +77,16 @@ function MobileMenu({ handleHideMenu }) {
             </ul>
           </nav>
         </div>
-      </div>
+      </motion.div>
 
-      <div
+      <motion.div
         onClick={handleHideMenu}
-        className="fixed inset-0 z-0 h-full w-full bg-[var(--color-black-75)] transition-all duration-500 lg:hidden"
-      ></div>
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        exit={{ opacity: 0 }}
+        transition={{ duration: 0.3 }}
+        className="fixed inset-0 z-0 h-full w-full bg-[var(--color-black-75)] lg:hidden"
+      />
     </>
   );
 }

@@ -1,3 +1,4 @@
+import { motion } from "motion/react";
 import plusIcon from "../assets/icon-plus.svg";
 import minusIcon from "../assets/icon-minus.svg";
 
@@ -37,26 +38,31 @@ function ProductInfo({ quantity, onIncrement, onDecrement, onShowQuantity }) {
 
       <div className="flex flex-col items-center gap-4 md:mt-2 md:flex-row">
         <div className="flex w-full items-center justify-between rounded-[10px] bg-[var(--color-light-grayish-blue)] p-4 lg:max-w-[9.8125rem]">
-          <button
+          <motion.button
+            whileHover={{ scale: 1.5, transition: { duration: 0.1 } }}
+            whileTap={{ scale: 20 }}
             aria-label="Decrease item"
             onClick={onDecrement}
             className="cursor-pointer transition-all duration-300 hover:opacity-60 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--color-orange)]"
           >
             <img src={minusIcon} alt="" />
-          </button>
+          </motion.button>
           <p className="text-base font-bold text-[var(--color-very-dark-blue)]">
             {quantity}
           </p>
-          <button
+          <motion.button
+            whileHover={{ scale: 1.5, transition: { duration: 0.1 } }}
+            whileTap={{ scale: 20 }}
             aria-label="Increase item"
             onClick={onIncrement}
             className="cursor-pointer transition-all duration-300 hover:opacity-60 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--color-orange)]"
           >
             <img src={plusIcon} alt="" />
-          </button>
+          </motion.button>
         </div>
 
-        <button
+        <motion.button
+          whileTap={{ scale: 0.5, y: 2 }}
           onClick={onShowQuantity}
           className="flex w-full cursor-pointer items-center justify-center gap-4 rounded-[10px] bg-[var(--color-orange)] p-4 text-base font-bold text-white transition-all duration-300 hover:opacity-80 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--color-orange)]"
         >
@@ -75,7 +81,7 @@ function ProductInfo({ quantity, onIncrement, onDecrement, onShowQuantity }) {
             />
           </svg>
           Add to cart
-        </button>
+        </motion.button>
       </div>
     </div>
   );

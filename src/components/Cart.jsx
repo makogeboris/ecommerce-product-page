@@ -1,8 +1,14 @@
+import { motion } from "motion/react";
 import deleteIcon from "../assets/icon-delete.svg";
 
 function Cart({ quantity, isItemInCart, onDelete, onCheckout }) {
   return (
-    <div className="xs:right-6 absolute top-0 right-2 min-h-[16rem] w-full max-w-[22.5rem] rounded-[10px] bg-white px-6 pt-6 pb-8 shadow-2xl md:-top-[92px] lg:right-0">
+    <motion.div
+      initial={{ opacity: 0, scale: 0 }}
+      animate={{ opacity: 1, scale: 1 }}
+      exit={{ opacity: 0, scale: 0 }}
+      className="xs:right-6 absolute top-0 right-2 min-h-[16rem] w-full max-w-[22.5rem] rounded-[10px] bg-white px-6 pt-6 pb-8 shadow-2xl md:-top-[92px] lg:right-0"
+    >
       <p className="text-base font-bold text-[var(--color-very-dark-blue)]">
         Cart
       </p>
@@ -52,7 +58,7 @@ function Cart({ quantity, isItemInCart, onDelete, onCheckout }) {
           </button>
         </div>
       )}
-    </div>
+    </motion.div>
   );
 }
 

@@ -1,6 +1,12 @@
+import { motion } from "motion/react";
+
 function CartButton({ onToggleCart, quantity, showQuantity }) {
   return (
-    <div className="relative">
+    <motion.div
+      whileHover={{ scale: 1.2 }}
+      whileTap={{ scale: 0.8 }}
+      className="relative"
+    >
       <button
         aria-label="Toggle cart"
         onClick={onToggleCart}
@@ -27,7 +33,7 @@ function CartButton({ onToggleCart, quantity, showQuantity }) {
           <p className="text-[10px] font-bold text-white">{quantity}</p>
         </div>
       )}
-    </div>
+    </motion.div>
   );
 }
 
