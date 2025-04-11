@@ -56,9 +56,9 @@ export default function LightboxComponent() {
         <img
           key={index}
           src={slides[index].src}
-          alt={`Product ${index + 1}`}
+          alt={`Sneaker ${index + 1}`}
           onClick={() => setOpen(true)}
-          className={`w-full cursor-pointer transition-transform duration-500 ease-in-out sm:rounded-2xl ${
+          className={`w-full cursor-pointer sm:rounded-2xl ${
             direction === "next"
               ? "animate-slide-in-left translate-x-0"
               : "animate-slide-in-right translate-x-0"
