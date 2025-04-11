@@ -89,7 +89,7 @@ export default function LightboxComponent() {
       </div>
 
       {!isMobile && (
-        <div className="mt-4 hidden justify-between gap-4 sm:flex">
+        <div className="mt-8 hidden justify-between gap-4 sm:flex">
           {slides.map((slide, i) => (
             <img
               key={i}
