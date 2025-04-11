@@ -58,7 +58,7 @@ export default function LightboxComponent() {
           src={slides[index].src}
           alt={`Sneaker ${index + 1}`}
           onClick={() => setOpen(true)}
-          className={`w-full cursor-pointer sm:rounded-2xl ${
+          className={`w-full cursor-pointer sm:rounded-2xl md:min-h-[27.8125rem] ${
             direction === "next"
               ? "animate-slide-in-left translate-x-0"
               : "animate-slide-in-right translate-x-0"
