@@ -51,7 +51,7 @@ export default function LightboxComponent() {
   };
 
   return (
-    <div className="xs:max-w-[33.75rem] lg:max-w-[27.8125rem]">
+    <div className="xs:max-w-[33.75rem] md:min-w-[27.8125rem]">
       <div className="relative sm:overflow-hidden sm:rounded-2xl">
         <img
           key={index}
