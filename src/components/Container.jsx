@@ -1,6 +1,6 @@
 import { AnimatePresence } from "motion/react";
 import Cart from "./Cart";
-import Lightbox from "./Lightbox";
+import LightboxComponent from "./LightboxComponent";
 import ProductInfo from "./ProductInfo";
 
 function Container({
@@ -26,7 +26,7 @@ function Container({
             />
           )}
         </AnimatePresence>
-        <Lightbox />
+        <LightboxComponent />
         <ProductInfo
           quantity={quantity}
           onIncrement={onIncrement}
