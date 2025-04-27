@@ -41,7 +41,7 @@ function ProductInfo({ quantity, onIncrement, onDecrement, onShowQuantity }) {
         <div className="flex w-full items-center justify-between rounded-[10px] bg-[var(--color-light-grayish-blue)] p-4 lg:max-w-[9.8125rem]">
           <motion.button
             whileHover={{ scale: 1.5, transition: { duration: 0.1 } }}
-            whileTap={{ scale: 20 }}
+            whileTap={{ scale: 1.2 }}
             aria-label="Decrease item"
             onClick={onDecrement}
             className="cursor-pointer transition-all duration-300 hover:opacity-60 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--color-orange)]"
@@ -53,7 +53,7 @@ function ProductInfo({ quantity, onIncrement, onDecrement, onShowQuantity }) {
           </p>
           <motion.button
             whileHover={{ scale: 1.5, transition: { duration: 0.1 } }}
-            whileTap={{ scale: 20 }}
+            whileTap={{ scale: 1.2 }}
             aria-label="Increase item"
             onClick={onIncrement}
             className="cursor-pointer transition-all duration-300 hover:opacity-60 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--color-orange)]"
